@@ -1,0 +1,10 @@
+<div id="container">
+  <div class="card" *ngFor="let module of objModules.modules">
+    <button mat-raised-button color="accent" (click)="setOpcions(module._id)" class="button">
+      <button mat-fab color="primary" disabled class="icon">
+        <mat-icon>{{module.icon}}</mat-icon>
+      </button>
+      <b>{{module.name}}</b>
+    </button>
+  </div>
+</div>

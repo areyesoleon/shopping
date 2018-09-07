@@ -1,0 +1,48 @@
+#container {
+  display: flex;
+  width: 100%;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+
+.card {
+  margin: 0.25rem;
+}
+
+.card .button {
+  display: flex;
+  width: 17rem;
+  height: 8.5rem;
+  border-radius: 0.30rem;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+}
+
+.icon {
+  margin-right: 1rem;
+}
+
+.card b {
+  font-size: 1.3rem;
+  color: white
+}
+
+@media only screen and (max-width: 1023px) {
+  .icon {
+    display: true;
+  }
+  .card b {
+    font-size: 1rem;
+  }
+}
+
+/* movile */
+@media only screen and (max-width: 600px) {
+  .icon {
+    display: none;
+  }
+  .button b {
+    font-size: 0.90rem
+  }
+}

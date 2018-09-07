@@ -1,0 +1,22 @@
+<mat-sidenav-container id="sidebar">
+  <mat-sidenav mode="side" [opened]="show" color="primary" id="sidenav">
+    <mat-accordion>
+      <mat-expansion-panel class="panel" *ngFor="let option of options">
+        <mat-expansion-panel-header>
+          <mat-panel-title>
+            {{option.title}}
+          </mat-panel-title>
+          <mat-icon color="accent" class="icon">
+            {{option.icon}}
+          </mat-icon>
+        </mat-expansion-panel-header>
+        <a href="#" mat-raised-button color="accent" class="page" *ngFor="let route of option.routes">
+          <mat-icon>{{route.icon}}</mat-icon>
+        </a>
+      </mat-expansion-panel>
+    </mat-accordion>
+  </mat-sidenav>
+  <mat-sidenav-content id="content">
+    <ng-content></ng-content>
+  </mat-sidenav-content>
+</mat-sidenav-container>
