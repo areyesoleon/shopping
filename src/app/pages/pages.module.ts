@@ -5,7 +5,7 @@ import { ModuleModule } from '../module/module.module';
 import { StartComponent } from './start/start.component';
 import { PAGES_ROUTES } from './pages.routes';
 import { UserModule } from '../user/user.module';
-import { UserComponent } from './user/user.component';
+import { UserPageComponent } from './user-page/user-page.component';
 
 @NgModule({
   imports: [
@@ -14,7 +14,7 @@ import { UserComponent } from './user/user.component';
     UserModule,
     PAGES_ROUTES
   ],
-  declarations: [RoutesComponent, StartComponent, UserComponent],
+  declarations: [RoutesComponent, StartComponent, UserPageComponent],
   exports: [RoutesComponent]
 })
 export class PagesModule { }
