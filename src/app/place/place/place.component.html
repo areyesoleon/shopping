@@ -1,3 +1,23 @@
-<p>
-  place works!
-</p>
+<mat-card id="card">
+    <mat-card-header>
+        <div>
+            <mat-icon id="card-header-icon" inline="true" color="primary">store</mat-icon>
+        </div>
+        <div>
+            <mat-card-title>Lugar</mat-card-title>
+            <mat-card-subtitle>name place to edit</mat-card-subtitle>
+        </div>
+    </mat-card-header>
+    <mat-card-content>
+        <div id=form-card>
+            <mat-form-field>
+                <input type="text" matInput placeholder="Nombre">
+            </mat-form-field>
+        </div>
+    </mat-card-content>
+    <mat-card-actions>
+        <button mat-raised-button color="primary" matTooltip="Guardar">
+            <mat-icon>save</mat-icon>
+        </button>
+    </mat-card-actions>
+</mat-card>
