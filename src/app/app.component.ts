@@ -14,31 +14,9 @@ export class AppComponent implements OnInit {
     public _ms: ModuleService
   ) {
     this.universe = {
-      company: {
-        name: 'name company'
-      },
       menu: {
         show: false,
-        modules: [
-          {
-            name: 'Lugares',
-            icon: 'home',
-            disabled: false,
-            id: 'place'
-          },
-          {
-            name: 'Miembros',
-            icon: 'supervised_user_circle',
-            disabled: false,
-            id: 'user'
-          },
-          {
-            name: 'Productos',
-            icon: 'shopping_basket',
-            disabled: true,
-            id: 'box'
-          }
-        ],
+        modules: [],
         options: []
       }
     };
