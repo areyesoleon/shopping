@@ -3,9 +3,9 @@
     <button mat-raised-button color="accent" matTooltip="Menu" (click)="displayMenu()">
       <mat-icon>menu</mat-icon>
     </button>
-    <button mat-raised-button color="accent" matTooltip="Modulo">
+    <a [routerLink]="['/modules']" mat-raised-button color="accent" matTooltip="Modulo">
       <mat-icon>view_module</mat-icon>
-    </button>
+    </a>
   </div>
   <div id="menu-tablet">
     <button mat-fab color="accent" (click)="displayMenu()">

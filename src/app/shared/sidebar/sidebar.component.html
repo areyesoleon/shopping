@@ -10,7 +10,7 @@
                         {{option.icon}}
                     </mat-icon>
                 </mat-expansion-panel-header>
-                <a [routerLink]="['/user']" mat-raised-button color="accent" class="page" *ngFor="let route of option.routes">
+                <a mat-raised-button color="accent" class="page" *ngFor="let route of option.routes"[routerLink]="[route.link]"  [matTooltip]="route.name">
                     <mat-icon>{{route.icon}}</mat-icon>
                 </a>
             </mat-expansion-panel>
