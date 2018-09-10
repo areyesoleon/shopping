@@ -8,6 +8,7 @@ import { UserModule } from '../user/user.module';
 import { UserPageComponent } from './user-page/user-page.component';
 import { PlacePageComponent } from './place-page/place-page.component';
 import { PlaceModule } from '../place/place.module';
+import { ItemPageComponent } from './item-page/item-page.component';
 
 @NgModule({
   imports: [
@@ -17,7 +18,7 @@ import { PlaceModule } from '../place/place.module';
     PlaceModule,
     PAGES_ROUTES
   ],
-  declarations: [RoutesComponent, StartComponent, UserPageComponent, PlacePageComponent],
+  declarations: [RoutesComponent, StartComponent, UserPageComponent, PlacePageComponent, ItemPageComponent],
   exports: [RoutesComponent]
 })
 export class PagesModule { }
