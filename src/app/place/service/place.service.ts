@@ -13,12 +13,12 @@ export class PlaceService {
 
   private url = URL_SERVICES;
   constructor(
-    private http: HttpClient,
-    private snackBar: MatSnackBar
+    public http: HttpClient,
+    public snackBar: MatSnackBar
   ) { }
 
   savePlace(place: Place) {
-    return this.http.post(this.url + '/admin/place', place)
+    return this.http.post(this.url + 'admin/place', place)
       .pipe(map((resp: any) => {
         this.snackBar.open('Lugar', 'Creado', {
           duration: 3000,

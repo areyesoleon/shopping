@@ -10,7 +10,7 @@ import { MatSnackBar } from '@angular/material';
 })
 export class PlaceComponent implements OnInit {
 
-  public place: Place = new Place('',true,'5b96a42ef40bad4f00ccb161');
+  public place: Place = new Place('',true,'5b96a42ef40bad4f00ccb161','');
   constructor(
     private _ps: PlaceService,
     private snackBar: MatSnackBar
@@ -26,7 +26,7 @@ export class PlaceComponent implements OnInit {
       });
       return;
     }
-    this._ps.savePlace(this.place).subscribe();
+    this._ps.savePlace(this.place).subscribe(() => {});
   }
 
 }
