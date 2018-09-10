@@ -3,7 +3,7 @@ import { HttpClient } from '@angular/common/http';
 import { User } from '../../models/user.model';
 import { URL_SERVICES } from '../../config/config';
 import { map, catchError } from 'rxjs/operators';
-import { throwError, of } from 'rxjs';
+import { of } from 'rxjs';
 
 import { MatSnackBar } from '@angular/material';
 

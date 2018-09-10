@@ -9,20 +9,21 @@
         </div>
     </mat-card-header>
     <mat-card-content>
-        <div id="form-card">
+        <form #us="ngForm" id="form-card" ngNativeValidate>
             <mat-form-field>
-                <input [(ngModel)]="user.name" name="name" type="text" matInput placeholder="Nombre">
+                <input [(ngModel)]="user.name" name="name" type="text" matInput placeholder="Nombre" required>
+                <mat-error *ngIf="user.name.invalid">Ingrese un correo</mat-error>
             </mat-form-field>
             <mat-form-field>
-                <input [(ngModel)]="user.email" name="email" type="email" matInput placeholder="Correo">
+                <input [(ngModel)]="user.email" name="email" type="email" matInput placeholder="Correo" required>
             </mat-form-field>
             <mat-form-field>
-                <input [(ngModel)]="user.password" name="password" type="password" matInput placeholder="Contraseña">
+                <input [(ngModel)]="user.password" name="password" type="password" matInput placeholder="Contraseña" required>
             </mat-form-field>
-        </div>
+        </form>
     </mat-card-content>
     <mat-card-actions>
-        <button (click)="saveUser()" mat-raised-button color="primary" matTooltip="Guardar">
+        <button (click)="saveUser(us)" mat-raised-button color="primary" matTooltip="Guardar">
             <mat-icon>save</mat-icon>
         </button>
     </mat-card-actions>
