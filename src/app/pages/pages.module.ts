@@ -7,12 +7,14 @@ import { PAGES_ROUTES } from './pages.routes';
 import { UserModule } from '../user/user.module';
 import { UserPageComponent } from './user-page/user-page.component';
 import { PlacePageComponent } from './place-page/place-page.component';
+import { PlaceModule } from '../place/place.module';
 
 @NgModule({
   imports: [
     CommonModule,
     ModuleModule,
     UserModule,
+    PlaceModule,
     PAGES_ROUTES
   ],
   declarations: [RoutesComponent, StartComponent, UserPageComponent, PlacePageComponent],

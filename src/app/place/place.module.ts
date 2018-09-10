@@ -6,6 +6,7 @@ import { PlaceComponent } from './place/place.component';
   imports: [
     CommonModule
   ],
-  declarations: [PlaceComponent]
+  declarations: [PlaceComponent],
+  exports: [PlaceComponent]
 })
 export class PlaceModule { }
