@@ -1,3 +1,29 @@
-<p>
-  user works!
-</p>
+<mat-card id="card">
+    <mat-card-header>
+        <div>
+            <mat-icon id="card-header-icon" inline="true" color="primary">supervised_user_circle</mat-icon>
+        </div>
+        <div>
+            <mat-card-title>Usuario</mat-card-title>
+            <mat-card-subtitle>Name edit usuario</mat-card-subtitle>
+        </div>
+    </mat-card-header>
+    <mat-card-content>
+        <div id=form-card>
+            <mat-form-field>
+                <input type="text" matInput placeholder="Nombre">
+            </mat-form-field>
+            <mat-form-field>
+                <input type="email" matInput placeholder="Correo">
+            </mat-form-field>
+            <mat-form-field>
+                <input type="password" matInput placeholder="Contraseña">
+            </mat-form-field>
+        </div>
+    </mat-card-content>
+    <mat-card-actions>
+        <button mat-raised-button color="primary" matTooltip="Guardar">
+            <mat-icon>save</mat-icon>
+        </button>
+    </mat-card-actions>
+</mat-card>
