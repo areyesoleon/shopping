@@ -15,10 +15,10 @@ export class RouteService {
     public router: Router
   ) { }
 
-  loadRoute(id:string) {
+  loadRoute(id: string) {
     return this.http.get(this.url + `config/route/${id}`)
-    .pipe(map((resp:any) => {
-      return resp.rutas
+    .pipe(map((resp: any) => {
+      return resp.rutas;
     }));
   }
 }

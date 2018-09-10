@@ -22,14 +22,14 @@ export class UserService {
       .pipe(map((resp: any) => {
         this.snackBar.open('Usuario', 'Creado', {
           duration: 3000,
-          panelClass:['success-snackBar']
+          panelClass: ['success-snackBar']
         });
         return resp.company;
-      }),catchError((err:any) =>{
+      }), catchError((err: any) => {
         this.snackBar.open('Usuario', err.error.errors.message, {
-          panelClass:['error-snackBar']
+          panelClass: ['error-snackBar']
         });
-        return of(err)
+        return of(err);
       })
       );
   }

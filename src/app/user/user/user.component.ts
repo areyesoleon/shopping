@@ -12,7 +12,7 @@ import { MatSnackBar } from '@angular/material';
 })
 export class UserComponent implements OnInit {
 
-  public user: UserModule = new User('','','',true,'');
+  public user: UserModule = new User('', '', '', true, '');
   constructor(
     public _us: UserService,
     public snackBar: MatSnackBar
@@ -21,12 +21,12 @@ export class UserComponent implements OnInit {
   ngOnInit() {
   }
 
-  saveUser(us: NgForm){
-    if(us.invalid){
+  saveUser(us: NgForm) {
+    if (us.invalid) {
       this.snackBar.open('Usuario', 'Ingrese los datos en los campos con *', {
-        panelClass:['warning-snackBar']
+        panelClass: ['warning-snackBar']
       });
-      return
+      return;
     }
     this._us.saveUser(this.user).subscribe(() => {});
   }

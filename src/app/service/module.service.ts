@@ -15,10 +15,10 @@ export class ModuleService {
     public router: Router,
   ) { }
 
-  loadModule(){
+  loadModule() {
     return this.http.get(this.url)
-    .pipe(map((resp: any) =>{
+    .pipe(map((resp: any) => {
       return resp.modules;
-    }))
+    }));
   }
 }

@@ -17,7 +17,7 @@ export class CardsComponent implements OnInit {
   ngOnInit() {
   }
 
-  setOpcions(id:string) {
+  setOpcions(id: string) {
     console.log(id);
     this._rs.loadRoute(id).subscribe((res) => {
       console.log(res);

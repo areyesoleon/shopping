@@ -24,7 +24,7 @@ export class PlaceService {
           duration: 3000,
           panelClass: ['success-snackBar']
         });
-        return resp.place
+        return resp.place;
       }), catchError((err: any) => {
         this.snackBar.open('Usuario', err.error.errors.message, {
           panelClass: ['error-snackBar']

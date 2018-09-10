@@ -24,14 +24,14 @@ export class AppComponent implements OnInit {
 
   ngOnInit() {
     this.setUniverse();
-    this.load().then((res) =>{
+    this.load().then((res) => {
       this.universe.menu.modules = res[0];
       this.setUniverse();
-    })
+    });
   }
 
   load() {
-    return Promise.all([this._ms.loadModule().toPromise()])
+    return Promise.all([this._ms.loadModule().toPromise()]);
   }
 
   setUniverse() {
