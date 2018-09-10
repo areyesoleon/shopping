@@ -29,7 +29,7 @@ export class UserService {
         this.snackBar.open('Usuario', err.error.errors.message, {
           panelClass:['error-snackBar']
         });
-        return of(console.log(err))
+        return of(err)
       })
       );
   }

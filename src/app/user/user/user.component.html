@@ -12,7 +12,6 @@
         <form #us="ngForm" id="form-card" ngNativeValidate>
             <mat-form-field>
                 <input [(ngModel)]="user.name" name="name" type="text" matInput placeholder="Nombre" required>
-                <mat-error *ngIf="user.name.invalid">Ingrese un correo</mat-error>
             </mat-form-field>
             <mat-form-field>
                 <input [(ngModel)]="user.email" name="email" type="email" matInput placeholder="Correo" required>

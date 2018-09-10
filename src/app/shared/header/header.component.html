@@ -1,6 +1,6 @@
 <mat-toolbar color="primary" id="header">
   <div id="menu-descktop">
-    <button mat-raised-button color="accent" matTooltip="Menu" (click)="displayMenu()">
+    <button *ngIf="objHeader.options.length" mat-raised-button color="accent" matTooltip="Menu" (click)="displayMenu()">
       <mat-icon>menu</mat-icon>
     </button>
     <a [routerLink]="['/modules']" mat-raised-button color="accent" matTooltip="Modulo">
