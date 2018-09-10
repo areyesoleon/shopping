@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { UserService } from '../service/user.service';
+import { UserModule } from '../user.module';
+import { User } from '../../models/user.model';
 
 @Component({
   selector: 'we-user',
@@ -7,9 +10,16 @@ import { Component, OnInit } from '@angular/core';
 })
 export class UserComponent implements OnInit {
 
-  constructor() { }
+  public user: UserModule = new User('','','',true,'');
+  constructor(
+    public _us: UserService
+  ) { }
 
   ngOnInit() {
+  }
+
+  saveUser(){
+    this._us.saveUser(this.user).subscribe(() => {});
   }
 
 }

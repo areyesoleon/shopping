@@ -22,3 +22,23 @@ body {
     display: flex;
     flex-direction: column;
 }
+
+.error-snackBar{
+    background-color: #c0392b;
+    color: white !important;
+}
+
+.error-snackBar .mat-button-wrapper{
+    color: white !important;
+}
+
+.success-snackBar{
+    background-color: #16a085;
+    color: white !important;
+}
+
+.success-snackBar .mat-button-wrapper{
+    color: white !important;
+}
+
+
