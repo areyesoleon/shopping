@@ -23,7 +23,7 @@ export class UserComponent implements OnInit {
 
   saveUser(us: NgForm) {
     if (us.invalid) {
-      this.snackBar.open('Usuario', 'Ingrese los datos en los campos con *', {
+      this.snackBar.open('Usuario', 'Los campos con * son obligatorios', {
         panelClass: ['warning-snackBar']
       });
       return;

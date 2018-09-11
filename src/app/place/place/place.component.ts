@@ -21,7 +21,7 @@ export class PlaceComponent implements OnInit {
 
   savePlace(pf: NgForm) {
     if (pf.invalid) {
-      this.snackBar.open('Lugar', 'Ingrese los datos en los campos con *', {
+      this.snackBar.open('Lugar', 'Los campos con * son obligatorios', {
         panelClass: ['warning-snackBar']
       });
       return;

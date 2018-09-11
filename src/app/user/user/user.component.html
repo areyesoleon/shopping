@@ -22,8 +22,15 @@
         </form>
     </mat-card-content>
     <mat-card-actions>
-        <button (click)="saveUser(us)" mat-raised-button color="primary" matTooltip="Guardar">
+        <button class="button-descktop-save" (click)="saveUser(us)" mat-raised-button color="primary" matTooltip="Guardar">
             <mat-icon>save</mat-icon>
+        </button>
+        <button class="button-tablet-save" (click)="saveUser(us)" mat-fab color="primary" matTooltip="Guardar">
+            <mat-icon>save</mat-icon>
+        </button>
+        <button class="button-movile-save" (click)="saveUser(us)" mat-icon-button color="primary" matTooltip="Guardar">
+            <mat-icon>save</mat-icon>
+            Guardar
         </button>
     </mat-card-actions>
 </mat-card>

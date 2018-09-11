@@ -1,4 +1,11 @@
 import { Injectable } from '@angular/core';
+import { User } from '../models/user.model';
+import { URL_SERVICES } from '../config/config';
+import { HttpClient } from '@angular/common/http';
+import { map, catchError } from 'rxjs/operators';
+import { of } from 'rxjs';
+import { MatSnackBar } from '@angular/material';
+import { Router } from '@angular/router';
 
 @Injectable({
   providedIn: 'root'
@@ -6,7 +13,12 @@ import { Injectable } from '@angular/core';
 export class MultiVerseService {
 
   private universe: any;
-  constructor() { }
+  private url = URL_SERVICES;
+  constructor(
+    public http: HttpClient,
+    private snackBar: MatSnackBar,
+    public router: Router
+  ) { }
 
   getUniverse() {
     return this.universe;
@@ -14,5 +26,33 @@ export class MultiVerseService {
 
   setUniverse(obj: any) {
     this.universe = obj;
+  }
+
+  login(user: User, remember: boolean = false) {
+    if (remember) {
+      localStorage.setItem('email',user.email);
+    } else {
+      localStorage.removeItem('email');
+    }
+
+    return this.http.post(this.url + 'opt/login',user)
+    .pipe(map((resp:any) => {
+      localStorage.setItem('id',resp.id);
+      localStorage.setItem('token',resp.token);
+      localStorage.setItem('user',JSON.stringify(resp.user));
+      this.snackBar.open(resp.user.name, 'Bienvenido', {
+        panelClass: ['success-snackBar'],
+        duration: 3000
+      });
+      this.router.navigate(['/modules']);
+      return true
+    }), catchError((err:any) => {
+      console.log(err);
+      this.snackBar.open('Ingreso', err.error.message, {
+        panelClass: ['error-snackBar']
+      });
+      return of(err);
+    }));
+
   }
 }

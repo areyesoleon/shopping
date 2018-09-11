@@ -8,20 +8,20 @@
     </a>
   </div>
   <div id="menu-tablet">
-    <button mat-fab color="accent" (click)="displayMenu()">
+    <button *ngIf="objHeader.options.length" mat-fab color="accent" (click)="displayMenu()">
       <mat-icon>menu</mat-icon>
     </button>
-    <button mat-fab color="accent">
+    <a [routerLink]="['/modules']" mat-fab color="accent" matTooltip="Modulo">
       <mat-icon>view_module</mat-icon>
-    </button>
+    </a>
   </div>
   <div id="menu-movile">
-    <button mat-icon-button color="accent" (click)="displayMenu()">
+    <button *ngIf="objHeader.options.length" mat-icon-button color="accent" (click)="displayMenu()">
       <mat-icon>menu</mat-icon>
     </button>
-    <button mat-icon-button color="accent">
+    <a [routerLink]="['/modules']" mat-icon-button color="accent" matTooltip="Modulo">
       <mat-icon>view_module</mat-icon>
-    </button>
+    </a>
   </div>
   <div id="name">page name</div>
   <div id="button-descktop">

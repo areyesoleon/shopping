@@ -12,6 +12,8 @@ import { PagesModule } from './pages/pages.module';
 import { APP_ROUTES } from './app.routes';
 import { HttpClientModule } from '@angular/common/http';
 import { LoginComponent } from './login/login.component';
+import { MaterialModule } from './material';
+import { FormsModule } from '@angular/forms';
 
 
 
@@ -22,7 +24,9 @@ import { LoginComponent } from './login/login.component';
   ],
   imports: [
     BrowserModule,
+    MaterialModule,
     APP_ROUTES,
+    FormsModule,
     HttpClientModule,
     BrowserAnimationsModule,
     ServiceWorkerModule.register('/ngsw-worker.js', { enabled: environment.production }),

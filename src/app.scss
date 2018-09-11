@@ -1,0 +1,38 @@
+// Descktop
+@media only screen and (min-width: 1024px) {
+  .button-descktop-save {
+      display: block;
+  }
+  .button-tablet-save {
+      display: none;
+  }
+  .button-movile-save {
+      display: none;
+  }
+}
+
+//Tablet
+@media only screen and (max-width: 1023px) {
+  .button-descktop-save {
+      display: none;
+  }
+  .button-tablet-save {
+      display: block;
+  }
+  .button-movile-save {
+      display: none;
+  }
+}
+
+//Movile
+@media only screen and (max-width: 600px) {
+  .button-descktop-save {
+      display: none;
+  }
+  .button-tablet-save {
+      display: none;
+  }
+  .button-movile-save {
+      display: block;
+  }
+}
