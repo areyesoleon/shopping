@@ -11,14 +11,12 @@ import { MultiVerseService } from '../service/multi-verse.service';
 })
 export class LoginComponent implements OnInit {
 
-  public user: User = new User('', '', '', true, '');
+  public user: User = new User('', localStorage.getItem('email'), '', true, '');
   constructor(
     public _ms: MultiVerseService,
     private snackBar: MatSnackBar
   ) {
-    localStorage.removeItem('id');
-    localStorage.removeItem('token');
-    localStorage.removeItem('user');
+    _ms.logout();
   }
 
   ngOnInit() {
