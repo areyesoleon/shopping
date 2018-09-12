@@ -61,8 +61,10 @@ export class MultiVerseService {
   login(user: User, remember: boolean = false) {
     if (remember) {
       localStorage.setItem('email', user.email);
+      localStorage.setItem('remember', String(remember));
     } else {
       localStorage.removeItem('email');
+      localStorage.removeItem('remember');
     }
 
     return this.http.post(this.url + 'opt/login', user)

@@ -4,6 +4,7 @@ export class User {
     public email?: string,
     public password?: string,
     public state?: boolean,
-    public _id?: string
+    public _id?: string,
+    public remember?: boolean
   ) {}
 }

@@ -11,7 +11,8 @@ import { MultiVerseService } from '../service/multi-verse.service';
 })
 export class LoginComponent implements OnInit {
 
-  public user: User = new User('', localStorage.getItem('email'), '', true, '');
+  public user: User = new User('', localStorage.getItem('email'), '', true, '', Boolean(localStorage.getItem('remember')));
+  public checked: boolean;
   constructor(
     public _ms: MultiVerseService,
     private snackBar: MatSnackBar
@@ -29,6 +30,6 @@ export class LoginComponent implements OnInit {
       });
       return;
     }
-    this._ms.login(this.user, lf.value.remember).subscribe();
+    this._ms.login(this.user, this.user.remember).subscribe();
   }
 }
