@@ -3,6 +3,7 @@ import { NgForm } from '@angular/forms';
 import { Place } from '../../models/place.model';
 import { PlaceService } from '../service/place.service';
 import { MatSnackBar } from '@angular/material';
+import { ActivatedRoute } from '@angular/router';
 @Component({
   selector: 'we-place',
   templateUrl: './place.component.html',
@@ -10,11 +11,21 @@ import { MatSnackBar } from '@angular/material';
 })
 export class PlaceComponent implements OnInit {
 
-  public place: Place = new Place('', true, '5b96a42ef40bad4f00ccb161', '');
+  public place: Place = new Place('', true, localStorage.getItem('id'), '');
+  private opt = 'savePlace';
   constructor(
     private _ps: PlaceService,
-    private snackBar: MatSnackBar
-  ) { }
+    private snackBar: MatSnackBar,
+    public activatedRoute: ActivatedRoute
+  ) {
+    activatedRoute.params.subscribe((params) => {
+      const id = params['id'];
+      if (id) {
+        this.loadPlace(id);
+        this.opt = 'updatePlace';
+      }
+    });
+  }
 
   ngOnInit() {
   }
@@ -26,7 +37,11 @@ export class PlaceComponent implements OnInit {
       });
       return;
     }
-    this._ps.savePlace(this.place).subscribe(() => {});
+    this._ps[this.opt](this.place).subscribe(() => {});
+  }
+
+  loadPlace(id: string) {
+    this._ps.loadPlace(id).subscribe((res) => this.place = res.place);
   }
 
 }

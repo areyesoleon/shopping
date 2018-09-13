@@ -8,6 +8,7 @@ const pagesRoutes: Routes = [
   { path: 'modules', canActivate: [LoginGuard], component: StartComponent },
   { path: 'user', component: UserPageComponent },
   { path: 'place', canActivate: [LoginGuard], component: PlacePageComponent },
+  { path: 'place/:id', canActivate: [LoginGuard], component: PlacePageComponent },
   { path: '', redirectTo: '/modules', pathMatch: 'full' }
 ];
 

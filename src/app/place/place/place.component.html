@@ -13,6 +13,7 @@
             <mat-form-field>
                 <input [(ngModel)]="place.name" name="name" type="text" matInput placeholder="Nombre" required>
             </mat-form-field>
+            <mat-slide-toggle [(ngModel)]="place.state" name="state" color="primary">{{place.state ?'Activo': 'Inactivo'}}</mat-slide-toggle>
         </form>
     </mat-card-content>
     <mat-card-actions>
