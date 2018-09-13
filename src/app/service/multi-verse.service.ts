@@ -13,6 +13,7 @@ import { Router } from '@angular/router';
 export class MultiVerseService {
 
   private universe: any;
+  private loading: any;
   private url = URL_SERVICES;
 
   public user: User;
@@ -33,6 +34,14 @@ export class MultiVerseService {
 
   setUniverse(obj: any) {
     this.universe = obj;
+  }
+
+  getLoading() {
+    return this.loading;
+  }
+
+  setLoading(load: any) {
+    this.universe.load = {loading:load};
   }
 
   loadStorage() {
@@ -59,6 +68,7 @@ export class MultiVerseService {
   }
 
   login(user: User, remember: boolean = false) {
+    this.setLoading(true);
     if (remember) {
       localStorage.setItem('email', user.email);
       localStorage.setItem('remember', String(remember));
@@ -78,11 +88,13 @@ export class MultiVerseService {
         });
         this.loadStorage();
         this.router.navigate(['/modules']);
+        this.setLoading(false);
         return true
       }), catchError((err: any) => {
         this.snackBar.open('Ingreso', err.error.message, {
           panelClass: ['error-snackBar']
         });
+        this.setLoading(false);
         return of(err);
       }));
 

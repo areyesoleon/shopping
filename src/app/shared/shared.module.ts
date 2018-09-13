@@ -7,6 +7,7 @@ import { RouterModule } from '@angular/router';
 
 // Angular material
 import { MaterialModule } from './material';
+import { LoadinComponent } from './loadin/loadin.component';
 
 @NgModule({
   imports: [
@@ -14,7 +15,7 @@ import { MaterialModule } from './material';
     MaterialModule,
     RouterModule
   ],
-  declarations: [FooterComponent, HeaderComponent, SidebarComponent],
-  exports: [FooterComponent, HeaderComponent, SidebarComponent]
+  declarations: [FooterComponent, HeaderComponent, SidebarComponent, LoadinComponent],
+  exports: [FooterComponent, HeaderComponent, SidebarComponent, LoadinComponent]
 })
 export class SharedModule { }
