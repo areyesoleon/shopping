@@ -4,5 +4,6 @@ export class Item {
     public name: string,
     public state: boolean,
     public _id: string
-  ){}
+  ) { }
 }
+

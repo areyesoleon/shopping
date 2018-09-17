@@ -9,7 +9,7 @@ import { ModuleService } from './service/module.service';
 })
 export class AppComponent implements OnInit {
   public universe: any;
-  public loading:any;
+  public loading: any;
   constructor(
     public _mv: MultiVerseService,
     public _ms: ModuleService

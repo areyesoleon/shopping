@@ -11,7 +11,7 @@ import { Router } from '@angular/router';
 })
 export class PlaceListComponent implements OnInit {
 
-  public tablePlace:any = [];
+  public tablePlace: any = [];
   public displayedColumns: string[];
   @ViewChild(MatPaginator) paginator: MatPaginator;
   @ViewChild(MatSort) sort: MatSort;
@@ -28,23 +28,23 @@ export class PlaceListComponent implements OnInit {
   }
 
   loadAllPlace() {
-    this._ps.loadAllPlace().subscribe((res:any) => {
+    this._ps.loadAllPlace().subscribe((res: any) => {
       this.tablePlace = new MatTableDataSource(res.places);
       this.tablePlace.paginator = this.paginator;
       this.tablePlace.sort = this.sort;
-      this.displayedColumns = ['index','name', 'state'];
+      this.displayedColumns = ['index', 'name', 'state'];
     });
   }
 
-  filter(value: any){
+  filter(value: any) {
     this.tablePlace.filter = value.trim().toLowerCase();
     if (this.tablePlace.paginator) {
       this.tablePlace.paginator.firstPage();
     }
   }
 
-  editPlace(id: string){
-    this.router.navigate(['/place/'+id]);
+  editPlace(id: string) {
+    this.router.navigate(['/place/' + id]);
   }
 
 }

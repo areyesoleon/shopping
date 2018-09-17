@@ -36,7 +36,7 @@ export class ItemService {
           panelClass: ['error-snackBar']
         });
         this._ms.setLoading(false);
-        return err
+        return err;
       }));
   }
 
@@ -55,8 +55,8 @@ export class ItemService {
           panelClass: ['error-snackBar']
         });
         this._ms.setLoading(false);
-        return err
-      }))
+        return err;
+      }));
   }
 
   loadItem(id: string) {
@@ -64,13 +64,13 @@ export class ItemService {
     return this.http.get(this.url + 'admin/item/' + id)
       .pipe(map((res: any) => {
         this._ms.setLoading(false);
-        return res.item
+        return res.item;
       }), catchError((err: any) => {
         this._ms.setLoading(false);
         this.snackBar.open('Item', err.error.errors.message, {
           panelClass: ['error-snackBar']
         });
         return err;
-      }))
+      }));
   }
 }

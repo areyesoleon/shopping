@@ -25,7 +25,6 @@ export class MultiVerseService {
     public router: Router
   ) {
     this.loadStorage();
-    console.log("cuando entro");
   }
 
   getUniverse() {
@@ -41,7 +40,7 @@ export class MultiVerseService {
   }
 
   setLoading(load: any) {
-    this.universe.load = {loading:load};
+    this.universe.load = { loading: load };
   }
 
   loadStorage() {
@@ -89,7 +88,7 @@ export class MultiVerseService {
         this.loadStorage();
         this.router.navigate(['/modules']);
         this.setLoading(false);
-        return true
+        return true;
       }), catchError((err: any) => {
         this.snackBar.open('Ingreso', err.error.message, {
           panelClass: ['error-snackBar']

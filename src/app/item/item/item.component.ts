@@ -13,7 +13,7 @@ import { ActivatedRoute } from '@angular/router';
 export class ItemComponent implements OnInit {
 
   public item: Item = new Item(localStorage.getItem('id'), '', true, '');
-  private isEdit: boolean = false;
+  private isEdit = false;
   private opt = 'saveItem';
   constructor(
     private snackBar: MatSnackBar,

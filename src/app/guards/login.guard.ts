@@ -12,9 +12,9 @@ export class LoginGuard implements CanActivate {
     public _ms: MultiVerseService,
     public router: Router,
     private snackBar: MatSnackBar
-  ){}
+  ) { }
   canActivate() {
-    if(this._ms.isLogged()){
+    if (this._ms.isLogged()) {
       return true;
     } else {
       this.snackBar.open('Ingreso', 'No esta autenticado', {

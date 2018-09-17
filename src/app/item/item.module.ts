@@ -11,6 +11,6 @@ import { FormsModule } from '@angular/forms';
     FormsModule
   ],
   declarations: [ItemComponent],
-  exports:[ItemComponent]
+  exports: [ItemComponent]
 })
 export class ItemModule { }
