@@ -4,6 +4,7 @@ import { UserPageComponent } from './user-page/user-page.component';
 import { PlacePageComponent } from './place-page/place-page.component';
 import { LoginGuard } from '../guards/login.guard';
 import { PlaceListPageComponent } from './place-list-page/place-list-page.component';
+import { ItemComponent } from '../item/item/item.component';
 
 const pagesRoutes: Routes = [
   { path: 'modules', canActivate: [LoginGuard], component: StartComponent },
@@ -11,6 +12,8 @@ const pagesRoutes: Routes = [
   { path: 'place', canActivate: [LoginGuard], component: PlacePageComponent },
   { path: 'place/:id', canActivate: [LoginGuard], component: PlacePageComponent },
   { path: 'place-list', canActivate: [LoginGuard], component: PlaceListPageComponent },
+  { path: 'item', canActivate: [LoginGuard], component: ItemComponent },
+  { path: 'item/:id', canActivate: [LoginGuard], component: ItemComponent },
   { path: '', redirectTo: '/modules', pathMatch: 'full' }
 ];
 

@@ -1,3 +1,30 @@
-<p>
-  item works!
-</p>
+<mat-card id="card">
+  <mat-card-header>
+    <div>
+      <mat-icon id="card-header-icon" inline="true" color="primary">shopping_basket</mat-icon>
+    </div>
+    <div>
+      <mat-card-title>Productos</mat-card-title>
+      <mat-card-subtitle>Name edit producto</mat-card-subtitle>
+    </div>
+  </mat-card-header>
+  <mat-card-content>
+    <form #iform="ngForm" id="form-card">
+      <mat-form-field>
+        <input [(ngModel)]="item.name" name="name" type="text" matInput placeholder="Nombre" required>
+      </mat-form-field>
+    </form>
+  </mat-card-content>
+  <mat-card-actions>
+    <button class="button-descktop-save" (click)="saveItem(iform)" mat-raised-button color="primary" matTooltip="Guardar">
+      <mat-icon>save</mat-icon>
+    </button>
+    <button class="button-tablet-save" (click)="saveItem(iform)" mat-fab color="primary" matTooltip="Guardar">
+      <mat-icon>save</mat-icon>
+    </button>
+    <button class="button-movile-save" (click)="saveItem(iform)" mat-icon-button color="primary" matTooltip="Guardar">
+      <mat-icon>save</mat-icon>
+      Guardar
+    </button>
+  </mat-card-actions>
+</mat-card>
