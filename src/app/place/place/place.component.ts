@@ -3,7 +3,7 @@ import { NgForm } from '@angular/forms';
 import { Place } from '../../models/place.model';
 import { PlaceService } from '../service/place.service';
 import { MatSnackBar } from '@angular/material';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 @Component({
   selector: 'we-place',
   templateUrl: './place.component.html',
@@ -17,7 +17,8 @@ export class PlaceComponent implements OnInit {
   constructor(
     private _ps: PlaceService,
     private snackBar: MatSnackBar,
-    public activatedRoute: ActivatedRoute
+    public activatedRoute: ActivatedRoute,
+    private router: Router
   ) {
     activatedRoute.params.subscribe((params) => {
       const id = params['id'];
@@ -39,7 +40,14 @@ export class PlaceComponent implements OnInit {
       });
       return;
     }
-    this._ps[this.opt](this.place).subscribe(() => {});
+    this._ps[this.opt](this.place).subscribe(() => {
+      if (this.isEdit) {
+        this.router.navigate(['/place-list']);
+      } else {
+        this.place.name = '';
+        pf.reset();
+      }
+    });
   }
 
   loadPlace(id: string) {
