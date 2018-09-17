@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { PlaceComponent } from './place/place.component';
 import { MaterialModule } from './material';
 import { FormsModule } from '@angular/forms';
+import { PlaceListComponent } from './place-list/place-list.component';
 
 @NgModule({
   imports: [
@@ -10,7 +11,7 @@ import { FormsModule } from '@angular/forms';
     MaterialModule,
     FormsModule
   ],
-  declarations: [PlaceComponent],
-  exports: [PlaceComponent]
+  declarations: [PlaceComponent, PlaceListComponent],
+  exports: [PlaceComponent, PlaceListComponent]
 })
 export class PlaceModule { }

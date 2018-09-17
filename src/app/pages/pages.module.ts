@@ -9,6 +9,7 @@ import { UserPageComponent } from './user-page/user-page.component';
 import { PlacePageComponent } from './place-page/place-page.component';
 import { PlaceModule } from '../place/place.module';
 import { ItemPageComponent } from './item-page/item-page.component';
+import { PlaceListPageComponent } from './place-list-page/place-list-page.component';
 
 @NgModule({
   imports: [
@@ -18,7 +19,7 @@ import { ItemPageComponent } from './item-page/item-page.component';
     PlaceModule,
     PAGES_ROUTES
   ],
-  declarations: [RoutesComponent, StartComponent, UserPageComponent, PlacePageComponent, ItemPageComponent],
+  declarations: [RoutesComponent, StartComponent, UserPageComponent, PlacePageComponent, ItemPageComponent, PlaceListPageComponent],
   exports: [RoutesComponent]
 })
 export class PagesModule { }

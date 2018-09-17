@@ -41,7 +41,7 @@ export class PlaceService {
   updatePlace(place: Place) {
     this._ms.setLoading(true);
     return this.http.put(this.url + 'admin/place/' + place._id, place)
-      .pipe(map((res:any) => {
+      .pipe(map((res: any) => {
         this.snackBar.open('Lugar', 'Actualizado', {
           duration: 3000,
           panelClass: ['success-snackBar']
@@ -62,7 +62,17 @@ export class PlaceService {
     return this.http.get(this.url + 'admin/place/' + id)
       .pipe(map((res: any) => {
         this._ms.setLoading(false);
-        console.log(res);
+        return res;
+      }), catchError((err: any) => {
+        this._ms.setLoading(false);
+        return err;
+      }));
+  }
+
+  loadAllPlace() {
+    return this.http.get(this.url + 'admin/place/?token=' + localStorage.getItem('token'))
+      .pipe(map((res: any) => {
+        this._ms.setLoading(false);
         return res;
       }), catchError((err: any) => {
         this._ms.setLoading(false);

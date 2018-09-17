@@ -23,6 +23,18 @@ body {
     flex-direction: column;
 }
 
+#table-card {
+    width: 100%
+}
+
+.row-table {
+    cursor: pointer;
+}
+
+.row-table:hover {
+    background-color:#6c9db8;
+  }
+
 .error-snackBar{
     background-color: #c0392b;
 }
