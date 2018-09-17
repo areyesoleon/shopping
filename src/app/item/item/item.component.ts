@@ -3,6 +3,7 @@ import { NgForm } from '@angular/forms';
 import { Item } from '../../models/item.model';
 import { MatSnackBar } from '@angular/material';
 import { ItemService } from '../service/item.service';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'we-item',
@@ -11,11 +12,23 @@ import { ItemService } from '../service/item.service';
 })
 export class ItemComponent implements OnInit {
 
-  public item: Item = new Item(localStorage.getItem('id'),'', true,'');
+  public item: Item = new Item(localStorage.getItem('id'), '', true, '');
+  private isEdit: boolean = false;
+  private opt = 'saveItem';
   constructor(
     private snackBar: MatSnackBar,
-    public _is: ItemService
-  ) { }
+    public _is: ItemService,
+    public activatedRoute: ActivatedRoute
+  ) {
+    activatedRoute.params.subscribe((params) => {
+      const id = params['id'];
+      if (id) {
+        this.loadItem(id);
+        this.opt = 'updateItem';
+        this.isEdit = true;
+      }
+    });
+  }
 
   ngOnInit() {
   }
@@ -27,7 +40,19 @@ export class ItemComponent implements OnInit {
       });
       return;
     }
-    this._is.saveItem(this.item).subscribe(() => { });
+    this._is[this.opt](this.item).subscribe(() => {
+      if (this.isEdit) {
+
+      } else {
+        this.item.name = '';
+      }
+    });
+  }
+
+  loadItem(id: string) {
+    this._is.loadItem(id).subscribe((res: any) => {
+      this.item = res;
+    });
   }
 
 }

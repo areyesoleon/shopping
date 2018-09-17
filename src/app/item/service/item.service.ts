@@ -39,4 +39,38 @@ export class ItemService {
         return err
       }));
   }
+
+  updateItem(item: Item) {
+    this._ms.setLoading(true);
+    return this.http.put(this.url + 'admin/item/' + item._id, item)
+      .pipe(map((res: any) => {
+        this.snackBar.open('Producto', 'Actualizado', {
+          duration: 3000,
+          panelClass: ['success-snackBar']
+        });
+        this._ms.setLoading(false);
+        return res.item;
+      }), catchError((err: any) => {
+        this.snackBar.open('Producto', err.error.errors.message, {
+          panelClass: ['error-snackBar']
+        });
+        this._ms.setLoading(false);
+        return err
+      }))
+  }
+
+  loadItem(id: string) {
+    this._ms.setLoading(true);
+    return this.http.get(this.url + 'admin/item/' + id)
+      .pipe(map((res: any) => {
+        this._ms.setLoading(false);
+        return res.item
+      }), catchError((err: any) => {
+        this._ms.setLoading(false);
+        this.snackBar.open('Item', err.error.errors.message, {
+          panelClass: ['error-snackBar']
+        });
+        return err;
+      }))
+  }
 }

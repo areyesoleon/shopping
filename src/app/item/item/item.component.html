@@ -5,7 +5,7 @@
     </div>
     <div>
       <mat-card-title>Productos</mat-card-title>
-      <mat-card-subtitle>Name edit producto</mat-card-subtitle>
+      <mat-card-subtitle>{{item.name}}</mat-card-subtitle>
     </div>
   </mat-card-header>
   <mat-card-content>
@@ -13,6 +13,7 @@
       <mat-form-field>
         <input [(ngModel)]="item.name" name="name" type="text" matInput placeholder="Nombre" required>
       </mat-form-field>
+      <mat-slide-toggle *ngIf="isEdit" [(ngModel)]="item.state" name="state" color="primary">{{item.state ?'Activo': 'Inactivo'}}</mat-slide-toggle>
     </form>
   </mat-card-content>
   <mat-card-actions>
