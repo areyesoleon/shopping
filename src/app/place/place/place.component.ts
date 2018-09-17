@@ -13,6 +13,7 @@ export class PlaceComponent implements OnInit {
 
   public place: Place = new Place('', true, localStorage.getItem('id'), '');
   private opt = 'savePlace';
+  public isEdit = false;
   constructor(
     private _ps: PlaceService,
     private snackBar: MatSnackBar,
@@ -23,6 +24,7 @@ export class PlaceComponent implements OnInit {
       if (id) {
         this.loadPlace(id);
         this.opt = 'updatePlace';
+        this.isEdit = true;
       }
     });
   }
