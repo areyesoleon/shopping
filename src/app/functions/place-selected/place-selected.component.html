@@ -1,4 +1,9 @@
 <mat-nav-list>
+  <div mat-list-item>
+    <button (click)="createNewPlace()" id="button-new-place" mat-raised-button color="accent">
+        Crear un nuevo lugar
+    </button>
+  </div>
   <a [ngClass]="(idPlace === place._id) ? 'set-default' : ''" *ngFor="let place of places" mat-list-item (click)="setNewPlace(place)">
     <span mat-line>{{place.name}}</span>
     <span *ngIf="idPlace === place._id" mat-line>Marcada como predeterminada</span>

@@ -41,7 +41,5 @@ export class HeaderComponent implements OnInit {
   templateUrl: 'place-selected-page.html'
 })
 export class PlaceSelectedPage {
-  constructor(
-    private bottomSheetRef: MatBottomSheetRef<PlaceSelectedPage>
-  ) { }
+  constructor() { }
 }
