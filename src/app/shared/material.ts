@@ -1,14 +1,14 @@
 import {
   MatToolbarModule, MatIconModule, MatButtonModule,
   MatTooltipModule, MatSidenavModule, MatExpansionModule,
-  MatProgressBarModule
+  MatProgressBarModule, MatBottomSheetModule
 } from '@angular/material';
 import { NgModule } from '@angular/core';
 
 @NgModule({
   imports: [MatToolbarModule, MatIconModule, MatButtonModule,
-    MatTooltipModule, MatSidenavModule, MatExpansionModule, MatProgressBarModule],
+    MatTooltipModule, MatSidenavModule, MatExpansionModule, MatProgressBarModule, MatBottomSheetModule],
   exports: [MatToolbarModule, MatIconModule, MatButtonModule,
-    MatTooltipModule, MatSidenavModule, MatExpansionModule, MatProgressBarModule],
+    MatTooltipModule, MatSidenavModule, MatExpansionModule, MatProgressBarModule, MatBottomSheetModule],
 })
 export class MaterialModule { }

@@ -28,7 +28,7 @@
     <button mat-raised-button color="accent" matTooltip="Andres">
       <mat-icon>face</mat-icon>
     </button>
-    <button mat-raised-button color="accent" matTooltip="Casa">
+    <button mat-raised-button color="accent" (click)="setPlace()" matTooltip="Casa">
       <mat-icon>store</mat-icon>
     </button>
   </div>
@@ -36,7 +36,7 @@
     <button mat-fab color="accent">
       <mat-icon>face</mat-icon>
     </button>
-    <button mat-fab color="accent">
+    <button mat-fab color="accent" (click)="setPlace()">
       <mat-icon>store</mat-icon>
     </button>
   </div>
@@ -44,7 +44,7 @@
     <button mat-icon-button color="accent">
       <mat-icon>face</mat-icon>
     </button>
-    <button mat-icon-button color="accent">
+    <button mat-icon-button color="accent" (click)="setPlace()">
       <mat-icon>store</mat-icon>
     </button>
   </div>

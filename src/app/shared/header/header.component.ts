@@ -1,4 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
+import { MatBottomSheet, MatBottomSheetRef } from '@angular/material';
+
 
 @Component({
   selector: 'we-header',
@@ -8,7 +10,9 @@ import { Component, OnInit, Input } from '@angular/core';
 export class HeaderComponent implements OnInit {
 
   @Input() objHeader: any;
-  constructor() { }
+  constructor(
+    private bottomSheet: MatBottomSheet
+  ) { }
 
   ngOnInit() {
   }
@@ -16,4 +20,18 @@ export class HeaderComponent implements OnInit {
   displayMenu() {
     this.objHeader.show = !this.objHeader.show;
   }
+
+  setPlace(): void {
+    this.bottomSheet.open(PlaceSelectedPage);
+  }
+}
+
+@Component({
+  selector: 'we-place-selected-page',
+  templateUrl: 'place-selected-page.html'
+})
+export class PlaceSelectedPage {
+  constructor(
+    private bottomSheetRef: MatBottomSheetRef<PlaceSelectedPage>
+    ){}
 }
