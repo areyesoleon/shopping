@@ -4,6 +4,7 @@ import { Item } from '../../models/item.model';
 import { MatSnackBar } from '@angular/material';
 import { ItemService } from '../service/item.service';
 import { ActivatedRoute } from '@angular/router';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'we-item',
@@ -18,7 +19,8 @@ export class ItemComponent implements OnInit {
   constructor(
     private snackBar: MatSnackBar,
     public _is: ItemService,
-    public activatedRoute: ActivatedRoute
+    public activatedRoute: ActivatedRoute,
+    private router: Router
   ) {
     activatedRoute.params.subscribe((params) => {
       const id = params['id'];
@@ -42,7 +44,7 @@ export class ItemComponent implements OnInit {
     }
     this._is[this.opt](this.item).subscribe(() => {
       if (this.isEdit) {
-
+        this.router.navigate(['/item-list']);
       } else {
         this.item.name = '';
         iform.reset();

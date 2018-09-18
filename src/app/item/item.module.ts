@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { ItemComponent } from './item/item.component';
 import { MaterialModule } from './material';
 import { FormsModule } from '@angular/forms';
+import { ItemListComponent } from './item-list/item-list.component';
 
 @NgModule({
   imports: [
@@ -10,7 +11,7 @@ import { FormsModule } from '@angular/forms';
     MaterialModule,
     FormsModule
   ],
-  declarations: [ItemComponent],
-  exports: [ItemComponent]
+  declarations: [ItemComponent, ItemListComponent],
+  exports: [ItemComponent, ItemListComponent]
 })
 export class ItemModule { }

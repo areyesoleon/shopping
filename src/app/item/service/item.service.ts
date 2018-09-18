@@ -73,4 +73,19 @@ export class ItemService {
         return err;
       }));
   }
+
+  loadAllItem() {
+    this._ms.setLoading(true);
+    return this.http.get(this.url + 'admin/item/?token=' + localStorage.getItem('token'))
+      .pipe(map((res: any) => {
+        this._ms.setLoading(false);
+        return res.items
+      }), catchError((err: any) => {
+        this._ms.setLoading(false);
+        this.snackBar.open('Item', err.error.errors.message, {
+          panelClass: ['error-snackBar']
+        });
+        return err;
+      }));
+  }
 }
