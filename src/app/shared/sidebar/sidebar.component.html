@@ -10,9 +10,9 @@
                         {{option.icon}}
                     </mat-icon>
                 </mat-expansion-panel-header>
-                <a mat-raised-button color="accent" class="page" *ngFor="let route of option.routes"[routerLink]="[route.link]"  [matTooltip]="route.name">
+                <button mat-raised-button color="accent" class="page" *ngFor="let route of option.routes" (click)="goRoute(route.link)" [matTooltip]="route.name">
                     <mat-icon>{{route.icon}}</mat-icon>
-                </a>
+                </button>
             </mat-expansion-panel>
         </mat-accordion>
     </mat-sidenav>

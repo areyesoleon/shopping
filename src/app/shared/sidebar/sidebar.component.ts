@@ -1,4 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
+import { Router } from '@angular/router';
+import { MultiVerseService } from '../../service/multi-verse.service';
 
 @Component({
   selector: 'we-sidebar',
@@ -9,10 +11,13 @@ export class SidebarComponent implements OnInit {
 
   private _options: any;
   private _show: boolean;
-  constructor() {
+  constructor(
+    private router: Router,
+    private _ms: MultiVerseService
+  ) {
   }
 
-  ngOnInit() {}
+  ngOnInit() { }
 
   get options(): any {
     return this._options;
@@ -28,5 +33,10 @@ export class SidebarComponent implements OnInit {
 
   @Input() set show(value: boolean) {
     this._show = value;
+  }
+
+  goRoute(route: string) {
+    this.router.navigate(['/' + route]);
+    this._ms.getUniverse()['menu'].show = false;
   }
 }
