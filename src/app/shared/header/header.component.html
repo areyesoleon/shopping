@@ -3,25 +3,25 @@
     <button *ngIf="menu.options.length" mat-raised-button color="accent" matTooltip="Menu" (click)="displayMenu()">
       <mat-icon>menu</mat-icon>
     </button>
-    <a [routerLink]="['/modules']" mat-raised-button color="accent" matTooltip="Modulo">
+    <button (click)="goModules()" mat-raised-button color="accent" matTooltip="Modulo">
       <mat-icon>view_module</mat-icon>
-    </a>
+    </button>
   </div>
   <div id="menu-tablet">
     <button *ngIf="menu.options.length" mat-fab color="accent" (click)="displayMenu()">
       <mat-icon>menu</mat-icon>
     </button>
-    <a [routerLink]="['/modules']" mat-fab color="accent" matTooltip="Modulo">
+    <button (click)="goModules()" mat-fab color="accent" matTooltip="Modulo">
       <mat-icon>view_module</mat-icon>
-    </a>
+    </button>
   </div>
   <div id="menu-movile">
     <button *ngIf="menu.options.length" mat-icon-button color="accent" (click)="displayMenu()">
       <mat-icon>menu</mat-icon>
     </button>
-    <a [routerLink]="['/modules']" mat-icon-button color="accent" matTooltip="Modulo">
+    <button (click)="goModules()" mat-icon-button color="accent" matTooltip="Modulo">
       <mat-icon>view_module</mat-icon>
-    </a>
+    </button>
   </div>
   <div id="name">page name</div>
   <div id="button-descktop">
@@ -36,7 +36,7 @@
     <button mat-fab color="accent">
       <mat-icon>face</mat-icon>
     </button>
-    <button mat-fab color="accent" [ngClass]="(isSetPlace) ? '' : 'animated infinite swing'" (click)="setPlace()">
+    <button mat-fab color="accent" [ngClass]="(place) ? '' : 'animated infinite swing'" (click)="setPlace()">
       <mat-icon>store</mat-icon>
     </button>
   </div>
@@ -44,7 +44,7 @@
     <button mat-icon-button color="accent">
       <mat-icon>face</mat-icon>
     </button>
-    <button mat-icon-button color="accent" [ngClass]="(isSetPlace) ? '' : 'animated infinite swing'" (click)="setPlace()">
+    <button mat-icon-button color="accent" [ngClass]="(place) ? '' : 'animated infinite swing'" (click)="setPlace()">
       <mat-icon>store</mat-icon>
     </button>
   </div>
