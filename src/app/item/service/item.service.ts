@@ -23,7 +23,7 @@ export class ItemService {
 
   saveItem(item: Item) {
     this._ms.setLoading(true);
-    return this.http.post(this.url + 'admin/item', item)
+    return this.http.post(this.url + 'admin/item?token=' + localStorage.getItem('token'), item)
       .pipe(map((res: any) => {
         this.snackBar.open('Producto', 'Creado', {
           duration: 3000,

@@ -12,7 +12,7 @@ import { ActivatedRoute } from '@angular/router';
 })
 export class ItemComponent implements OnInit {
 
-  public item: Item = new Item(localStorage.getItem('id'), '', true, '');
+  public item: Item = new Item('', '', true, '');
   private isEdit = false;
   private opt = 'saveItem';
   constructor(
@@ -45,6 +45,7 @@ export class ItemComponent implements OnInit {
 
       } else {
         this.item.name = '';
+        iform.reset();
       }
     });
   }
