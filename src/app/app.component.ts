@@ -22,7 +22,8 @@ export class AppComponent implements OnInit {
       },
       load: {
         loading: false
-      }
+      },
+      place: _mv.loadPlace()
     };
   }
 

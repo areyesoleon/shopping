@@ -1,6 +1,6 @@
 <mat-toolbar color="primary" id="header">
   <div id="menu-descktop">
-    <button *ngIf="objHeader.options.length" mat-raised-button color="accent" matTooltip="Menu" (click)="displayMenu()">
+    <button *ngIf="menu.options.length" mat-raised-button color="accent" matTooltip="Menu" (click)="displayMenu()">
       <mat-icon>menu</mat-icon>
     </button>
     <a [routerLink]="['/modules']" mat-raised-button color="accent" matTooltip="Modulo">
@@ -8,7 +8,7 @@
     </a>
   </div>
   <div id="menu-tablet">
-    <button *ngIf="objHeader.options.length" mat-fab color="accent" (click)="displayMenu()">
+    <button *ngIf="menu.options.length" mat-fab color="accent" (click)="displayMenu()">
       <mat-icon>menu</mat-icon>
     </button>
     <a [routerLink]="['/modules']" mat-fab color="accent" matTooltip="Modulo">
@@ -16,7 +16,7 @@
     </a>
   </div>
   <div id="menu-movile">
-    <button *ngIf="objHeader.options.length" mat-icon-button color="accent" (click)="displayMenu()">
+    <button *ngIf="menu.options.length" mat-icon-button color="accent" (click)="displayMenu()">
       <mat-icon>menu</mat-icon>
     </button>
     <a [routerLink]="['/modules']" mat-icon-button color="accent" matTooltip="Modulo">
@@ -28,7 +28,7 @@
     <button mat-raised-button color="accent" matTooltip="Andres">
       <mat-icon>face</mat-icon>
     </button>
-    <button mat-raised-button color="accent" (click)="setPlace()" matTooltip="Casa">
+    <button [ngClass]="(place) ? '' : 'animated infinite swing'" [matTooltip]="place.name" mat-raised-button color="accent" (click)="setPlace()">
       <mat-icon>store</mat-icon>
     </button>
   </div>
@@ -36,7 +36,7 @@
     <button mat-fab color="accent">
       <mat-icon>face</mat-icon>
     </button>
-    <button mat-fab color="accent" (click)="setPlace()">
+    <button mat-fab color="accent" [ngClass]="(isSetPlace) ? '' : 'animated infinite swing'" (click)="setPlace()">
       <mat-icon>store</mat-icon>
     </button>
   </div>
@@ -44,7 +44,7 @@
     <button mat-icon-button color="accent">
       <mat-icon>face</mat-icon>
     </button>
-    <button mat-icon-button color="accent" (click)="setPlace()">
+    <button mat-icon-button color="accent" [ngClass]="(isSetPlace) ? '' : 'animated infinite swing'" (click)="setPlace()">
       <mat-icon>store</mat-icon>
     </button>
   </div>

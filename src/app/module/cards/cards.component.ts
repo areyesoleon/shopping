@@ -18,9 +18,7 @@ export class CardsComponent implements OnInit {
   }
 
   setOpcions(id: string) {
-    console.log(id);
     this._rs.loadRoute(id).subscribe((res) => {
-      console.log(res);
       this.objModules.options = res;
     });
   }

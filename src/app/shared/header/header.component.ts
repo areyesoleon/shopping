@@ -1,5 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { MatBottomSheet, MatBottomSheetRef } from '@angular/material';
+import { MultiVerseService } from '../../service/multi-verse.service';
 
 
 @Component({
@@ -9,16 +10,19 @@ import { MatBottomSheet, MatBottomSheetRef } from '@angular/material';
 })
 export class HeaderComponent implements OnInit {
 
-  @Input() objHeader: any;
+  @Input() menu: any;
+  @Input() place: any;
   constructor(
-    private bottomSheet: MatBottomSheet
-  ) { }
+    private bottomSheet: MatBottomSheet,
+  ) {
+  }
 
   ngOnInit() {
+    console.log(this.menu);
   }
 
   displayMenu() {
-    this.objHeader.show = !this.objHeader.show;
+    this.menu.show = !this.menu.show;
   }
 
   setPlace(): void {
@@ -33,5 +37,5 @@ export class HeaderComponent implements OnInit {
 export class PlaceSelectedPage {
   constructor(
     private bottomSheetRef: MatBottomSheetRef<PlaceSelectedPage>
-    ){}
+  ) { }
 }

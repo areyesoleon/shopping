@@ -6,6 +6,7 @@ import { map, catchError } from 'rxjs/operators';
 import { of } from 'rxjs';
 import { MatSnackBar } from '@angular/material';
 import { Router } from '@angular/router';
+import { Place } from '../models/place.model';
 
 @Injectable({
   providedIn: 'root'
@@ -97,5 +98,14 @@ export class MultiVerseService {
         return of(err);
       }));
 
+  }
+
+  loadPlace() {
+    return (localStorage.getItem('place')) ? JSON.parse(localStorage.getItem('place')) : {};
+  }
+
+  setPlace(objPlace: Place) {
+    localStorage.setItem('place', JSON.stringify(objPlace));
+    this.getUniverse()['place'] = objPlace;
   }
 }

@@ -1,5 +1,5 @@
 <mat-nav-list>
-  <a [ngClass]="(idPlace === place._id) ? 'set-default' : ''" *ngFor="let place of places" mat-list-item (click)="setNewPlace(place._id)">
+  <a [ngClass]="(idPlace === place._id) ? 'set-default' : ''" *ngFor="let place of places" mat-list-item (click)="setNewPlace(place)">
     <span mat-line>{{place.name}}</span>
     <span *ngIf="idPlace === place._id" mat-line>Marcada como predeterminada</span>
   </a>
