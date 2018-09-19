@@ -12,6 +12,8 @@ import { ItemPageComponent } from './item-page/item-page.component';
 import { PlaceListPageComponent } from './place-list-page/place-list-page.component';
 import { ItemModule } from '../item/item.module';
 import { ItemListPageComponent } from './item-list-page/item-list-page.component';
+import { ListModule } from '../list/list.module';
+import { ListPageComponent } from './list-page/list-page.component';
 
 @NgModule({
   imports: [
@@ -20,9 +22,10 @@ import { ItemListPageComponent } from './item-list-page/item-list-page.component
     UserModule,
     PlaceModule,
     ItemModule,
+    ListModule,
     PAGES_ROUTES
   ],
-  declarations: [RoutesComponent, StartComponent, UserPageComponent, PlacePageComponent, ItemPageComponent, PlaceListPageComponent, ItemListPageComponent],
+  declarations: [RoutesComponent, StartComponent, UserPageComponent, PlacePageComponent, ItemPageComponent, PlaceListPageComponent, ItemListPageComponent, ListPageComponent],
   exports: [RoutesComponent]
 })
 export class PagesModule { }

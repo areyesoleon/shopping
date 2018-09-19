@@ -101,7 +101,7 @@ export class MultiVerseService {
   }
 
   loadPlace() {
-    return (localStorage.getItem('place')) ? JSON.parse(localStorage.getItem('place')) : {};
+    return (localStorage.getItem('place')) ? JSON.parse(localStorage.getItem('place')) : '';
   }
 
   setPlace(objPlace: Place) {

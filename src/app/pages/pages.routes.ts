@@ -6,6 +6,7 @@ import { LoginGuard } from '../guards/login.guard';
 import { PlaceListPageComponent } from './place-list-page/place-list-page.component';
 import { ItemComponent } from '../item/item/item.component';
 import { ItemListPageComponent } from './item-list-page/item-list-page.component';
+import { ListComponent } from '../list/list/list.component';
 
 const pagesRoutes: Routes = [
   { path: 'modules', canActivate: [LoginGuard], component: StartComponent },
@@ -16,6 +17,8 @@ const pagesRoutes: Routes = [
   { path: 'item', canActivate: [LoginGuard], component: ItemComponent },
   { path: 'item/:id', canActivate: [LoginGuard], component: ItemComponent },
   { path: 'item-list', canActivate: [LoginGuard], component: ItemListPageComponent },
+  { path: 'list', canActivate: [LoginGuard], component: ListComponent },
+  { path: 'list/:id', canActivate: [LoginGuard], component: ListComponent },
   { path: '', redirectTo: '/modules', pathMatch: 'full' }
 ];
 
