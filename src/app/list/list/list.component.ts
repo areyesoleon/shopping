@@ -6,6 +6,7 @@ import { ItemService } from '../../item/service/item.service';
 import { MatPaginator, MatTableDataSource, MatSnackBar } from '@angular/material';
 import { SelectionModel } from '@angular/cdk/collections';
 import { ItemList } from '../../models/itemList.models';
+import { ListService } from '../service/list.service';
 
 @Component({
   selector: 'we-list',
@@ -19,13 +20,13 @@ export class ListComponent implements OnInit {
     private _mv: MultiVerseService,
     private _is: ItemService,
     private snackBar: MatSnackBar,
+    private _ls: ListService
   ) {
     this.loadItems();
   }
 
-  private list: List = new List('', '', false, this._mv.loadPlace()['_id']);
+  private list: List = new List('', '', false, this._mv.loadPlace()['_id'],[]);
   public arrItems: ItemList[] = [];
-  private items: any = [];
   public tableItem: any = [];
   public selection: any = [];
   public displayedColumns: string[];
@@ -58,13 +59,13 @@ export class ListComponent implements OnInit {
     if (this.isAllSelected()) {
       this.selection.clear();
       this.arrItems = [];
-      this.objItems = this.arrItems;
+      this.objList.itemList = this.arrItems;
     } else {
       this.tableItem.data.forEach(row => {
         this.addItemToLis(row);
         return this.selection.select(row)
       });
-      this.objItems = this.arrItems;
+      this.objList.itemList = this.arrItems;
     }
   }
 
@@ -80,7 +81,7 @@ export class ListComponent implements OnInit {
     } else {
       this.arrItems.push(item);
     }
-    this.objItems = this.arrItems;
+    this.objList.itemList = this.arrItems;
   }
 
   get objList() {
@@ -91,14 +92,6 @@ export class ListComponent implements OnInit {
     this.list = obj;
   }
 
-  get objItems() {
-    return this.items;
-  }
-
-  set objItems(obj) {
-    this.items = obj;
-  }
-
   saveList(lf: NgForm) {
     if (lf.invalid) {
       this.snackBar.open('Lista', 'El nombre es obligatorio', {
@@ -107,13 +100,12 @@ export class ListComponent implements OnInit {
       return;
     }
 
-    if (!this.objItems.length) {
+    if (!Object.values(this.objList.itemList).length ) {
       this.snackBar.open('Lista', 'Seleccione algun producto', {
         panelClass: ['warning-snackBar']
       });
       return;
     }
-
+    this._ls.saveList(this.objList).subscribe(() => { });
   }
-
 }

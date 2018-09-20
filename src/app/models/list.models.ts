@@ -3,6 +3,7 @@ export class List {
     public _id: string,
     public name: string,
     public finished: boolean,
-    public idPlace: string
+    public idPlace: string,
+    public itemList: object
   ) { }
 }
