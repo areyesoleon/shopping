@@ -29,7 +29,6 @@ export class ItemListComponent implements OnInit {
 
   loadAllItem() {
     this._is.loadAllItem().subscribe((res:any) => {
-      console.log(res);
       this.tableItem = new MatTableDataSource(res);
       this.tableItem.paginator = this.paginator;
       this.tableItem.sort = this.sort;

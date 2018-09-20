@@ -9,6 +9,15 @@
   .button-movile-save {
       display: none;
   }
+  .master-descktop {
+    display: block;
+  }
+  .master-tablet {
+    display: none;
+  }
+  .master-movile {
+    display: none;
+  }
 }
 
 //Tablet
@@ -21,6 +30,15 @@
   }
   .button-movile-save {
       display: none;
+  }
+  .master-descktop {
+    display: none;
+  }
+  .master-tablet {
+    display: block;
+  }
+  .master-movile {
+    display: none;
   }
 }
 
@@ -35,4 +53,26 @@
   .button-movile-save {
       display: block;
   }
+  .master-descktop {
+    display: none;
+  }
+  .master-tablet {
+    display: none;
+  }
+  .master-movile {
+    display: block;
+  }
+}
+
+//Descktop and Tablet
+@media only screen and (min-width: 1023px) {
+    .master-descktop-tablet {
+        display: block;
+    }
+}
+
+@media only screen and (max-width: 600px) {
+    .master-descktop-tablet {
+        display: none;
+    }
 }
