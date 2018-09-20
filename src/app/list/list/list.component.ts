@@ -25,7 +25,7 @@ export class ListComponent implements OnInit {
     this.loadItems();
   }
 
-  private list: List = new List('', '', false, this._mv.loadPlace()['_id'],[]);
+  private list: List = new List('', '', false, this._mv.loadPlace()['_id'], []);
   public arrItems: ItemList[] = [];
   public tableItem: any = [];
   public selection: any = [];
@@ -100,12 +100,18 @@ export class ListComponent implements OnInit {
       return;
     }
 
-    if (!Object.values(this.objList.itemList).length ) {
+    if (!Object.values(this.objList.itemList).length) {
       this.snackBar.open('Lista', 'Seleccione algun producto', {
         panelClass: ['warning-snackBar']
       });
       return;
     }
     this._ls.saveList(this.objList).subscribe(() => { });
+  }
+
+  clearAll() {
+    this.objList.name = '';
+    this.objList.itemList = [];
+    this.selection.clear();
   }
 }
