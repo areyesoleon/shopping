@@ -5,6 +5,7 @@ import { NgForm } from '@angular/forms';
 import { ItemService } from '../../item/service/item.service';
 import { MatPaginator, MatTableDataSource, MatSnackBar } from '@angular/material';
 import { SelectionModel } from '@angular/cdk/collections';
+import { ItemList } from '../../models/itemList.models';
 
 @Component({
   selector: 'we-list',
@@ -23,7 +24,7 @@ export class ListComponent implements OnInit {
   }
 
   private list: List = new List('', '', false, this._mv.loadPlace()['_id']);
-  public arrItems: any[] = [];
+  public arrItems: ItemList[] = [];
   private items: any = [];
   public tableItem: any = [];
   public selection: any = [];
@@ -68,7 +69,10 @@ export class ListComponent implements OnInit {
   }
 
   addItemToLis(item) {
+    item.itemId = item._id;
+    item.buyed = false;
     delete item.state;
+    delete item._id;
     delete item.userId;
     const index = this.arrItems.indexOf(item);
     if (index > -1) {
