@@ -28,7 +28,7 @@ export class ListService {
           panelClass: ['success-snackBar']
         });
         this._ms.setLoading(false);
-        return res.list
+        return res.list;
       }), catchError((err: any) => {
         this.snackBar.open('Producto', err.error.errors.message, {
           panelClass: ['error-snackBar']

@@ -1,7 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { MatBottomSheet, MatBottomSheetRef } from '@angular/material';
+import { MatBottomSheet } from '@angular/material';
 import { Router } from '@angular/router';
-
+import { PlaceSelectedComponent } from '../../functions/place-selected/place-selected.component';
 
 @Component({
   selector: 'we-header',
@@ -26,19 +26,11 @@ export class HeaderComponent implements OnInit {
   }
 
   setPlace(): void {
-    this.bottomSheet.open(PlaceSelectedPage);
+    this.bottomSheet.open(PlaceSelectedComponent);
   }
 
-  goModules(){
+  goModules() {
     this.router.navigate(['/modules']);
     this.menu.show = false;
   }
-}
-
-@Component({
-  selector: 'we-place-selected-page',
-  templateUrl: 'place-selected-page.html'
-})
-export class PlaceSelectedPage {
-  constructor() { }
 }

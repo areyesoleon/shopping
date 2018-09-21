@@ -7,3 +7,4 @@ export class List {
     public itemList: object
   ) { }
 }
+

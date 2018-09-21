@@ -3,7 +3,7 @@ import { List } from '../../models/list.models';
 import { MultiVerseService } from '../../service/multi-verse.service';
 import { NgForm } from '@angular/forms';
 import { ItemService } from '../../item/service/item.service';
-import { MatPaginator, MatTableDataSource, MatSnackBar, MatDialogRef, MAT_DIALOG_DATA, MatDialog } from '@angular/material';
+import { MatPaginator, MatTableDataSource, MatSnackBar, MatDialog } from '@angular/material';
 import { SelectionModel } from '@angular/cdk/collections';
 import { ItemList } from '../../models/itemList.models';
 import { ListService } from '../service/list.service';
@@ -39,9 +39,9 @@ export class ListComponent implements OnInit {
     this._is.loadAllItem().subscribe((res: any) => {
       this.tableItem = new MatTableDataSource(res);
       this.tableItem.paginator = this.paginator;
-      this.displayedColumns = ['select', 'name',];
+      this.displayedColumns = ['select', 'name'];
       this.selection = new SelectionModel(true, []);
-    })
+    });
   }
 
   filter(value: any) {
@@ -65,7 +65,7 @@ export class ListComponent implements OnInit {
     } else {
       this.tableItem.data.forEach(row => {
         this.addItemToLis(row);
-        return this.selection.select(row)
+        return this.selection.select(row);
       });
       this.objList.itemList = this.arrItems;
     }
@@ -118,7 +118,7 @@ export class ListComponent implements OnInit {
   openDialog(): void {
     const dialogRef = this.dialog.open(DialogComponent, {
       width: '250px',
-      data: { title: "Limpiar todo", message: "Esta seguro de limpiar toda la lista.", icon: 'warning' }
+      data: { title: 'Limpiar todo', message: 'Esta seguro de limpiar toda la lista.', icon: 'warning' }
     });
 
     dialogRef.afterClosed().subscribe(result => {

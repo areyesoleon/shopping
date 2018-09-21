@@ -35,7 +35,7 @@ export class PlaceSelectedComponent implements OnInit {
     event.preventDefault();
   }
 
-  loadStoragePlace(){
+  loadStoragePlace() {
     this.idPlace = (this._ms.loadPlace()) ? this._ms.loadPlace()['_id'] : '';
   }
 

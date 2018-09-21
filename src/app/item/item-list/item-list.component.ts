@@ -28,12 +28,12 @@ export class ItemListComponent implements OnInit {
   }
 
   loadAllItem() {
-    this._is.loadAllItem().subscribe((res:any) => {
+    this._is.loadAllItem().subscribe((res: any) => {
       this.tableItem = new MatTableDataSource(res);
       this.tableItem.paginator = this.paginator;
       this.tableItem.sort = this.sort;
       this.displayedColumns = ['index', 'name', 'state'];
-    })
+    });
   }
 
   filter(value: any) {

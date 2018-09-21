@@ -15,7 +15,7 @@ import { DialogComponent } from '../functions/dialog/dialog.component';
     FunctionsModule
   ],
   declarations: [ListComponent, ListListComponent, DialogComponent],
-  entryComponents:[DialogComponent],
-  exports:[ListComponent, ListListComponent]
+  entryComponents: [DialogComponent],
+  exports: [ListComponent, ListListComponent]
 })
 export class ListModule { }

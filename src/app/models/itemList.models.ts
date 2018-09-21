@@ -6,3 +6,4 @@ export class ItemList {
     public buyed: boolean
   ) { }
 }
+
