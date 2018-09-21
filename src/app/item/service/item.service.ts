@@ -97,7 +97,7 @@ export class ItemService {
         return res.items;
       }), catchError((err: any) => {
         this._ms.setLoading(false);
-        this.snackBar.open('Item', err.error.errors.message, {
+        this.snackBar.open('Producto', err.error.errors.message, {
           panelClass: ['error-snackBar']
         });
         return err;

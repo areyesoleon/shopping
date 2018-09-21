@@ -37,4 +37,20 @@ export class ListService {
         return err;
       }));
   }
+
+  loadAllListPending() {
+    this._ms.setLoading(true);
+    return this.http.get(this.url + 'admin/list/state/false/'+this._ms.loadPlace()['_id']+'/?token=' + localStorage.getItem('token'))
+      .pipe(map((res: any) => {
+        this._ms.setLoading(false);
+        console.log(res.lists);
+        return res.lists
+      }), catchError((err) => {
+        this._ms.setLoading(false);
+        this.snackBar.open('Lista', err.error.errors.message, {
+          panelClass: ['error-snackBar']
+        });
+        return err;
+      }));
+  }
 }
