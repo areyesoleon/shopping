@@ -18,6 +18,9 @@
   .master-movile {
     display: none;
   }
+  .scroll {
+    height:300px; overflow:auto;
+  }
 }
 
 //Tablet
@@ -40,6 +43,9 @@
   .master-movile {
     display: none;
   }
+  .scroll {
+    height:600px; overflow:auto;
+  }
 }
 
 //Movile
@@ -61,6 +67,9 @@
   }
   .master-movile {
     display: block;
+  }
+  .scroll {
+    height:200px; overflow:auto;
   }
 }
 

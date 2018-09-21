@@ -38,6 +38,7 @@ export class ListComponent implements OnInit {
   loadItems() {
     this._is.loadAllItemState().subscribe((res: any) => {
       this.tableItem = new MatTableDataSource(res);
+      console.log(this.paginator);
       this.tableItem.paginator = this.paginator;
       this.displayedColumns = ['select', 'name'];
       this.selection = new SelectionModel(true, []);
