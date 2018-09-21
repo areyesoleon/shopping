@@ -1,6 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { MatBottomSheet, MatBottomSheetRef } from '@angular/material';
-import { MultiVerseService } from '../../service/multi-verse.service';
 import { Router } from '@angular/router';
 
 

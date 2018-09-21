@@ -1,12 +1,13 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { Component, OnInit, ViewChild, Inject } from '@angular/core';
 import { List } from '../../models/list.models';
 import { MultiVerseService } from '../../service/multi-verse.service';
 import { NgForm } from '@angular/forms';
 import { ItemService } from '../../item/service/item.service';
-import { MatPaginator, MatTableDataSource, MatSnackBar } from '@angular/material';
+import { MatPaginator, MatTableDataSource, MatSnackBar, MatDialogRef, MAT_DIALOG_DATA, MatDialog } from '@angular/material';
 import { SelectionModel } from '@angular/cdk/collections';
 import { ItemList } from '../../models/itemList.models';
 import { ListService } from '../service/list.service';
+import { DialogComponent } from '../../functions/dialog/dialog.component';
 
 @Component({
   selector: 'we-list',
@@ -20,7 +21,8 @@ export class ListComponent implements OnInit {
     private _mv: MultiVerseService,
     private _is: ItemService,
     private snackBar: MatSnackBar,
-    private _ls: ListService
+    private _ls: ListService,
+    public dialog: MatDialog
   ) {
     this.loadItems();
   }
@@ -110,8 +112,21 @@ export class ListComponent implements OnInit {
   }
 
   clearAll() {
-    this.objList.name = '';
-    this.objList.itemList = [];
-    this.selection.clear();
+    this.openDialog();
+  }
+
+  openDialog(): void {
+    const dialogRef = this.dialog.open(DialogComponent, {
+      width: '250px',
+      data: { title: "Limpiar todo", message: "Esta seguro de limpiar toda la lista.", icon: 'warning' }
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      if (result === 'true') {
+        this.objList.name = '';
+        this.objList.itemList = [];
+        this.selection.clear();
+      }
+    });
   }
 }
