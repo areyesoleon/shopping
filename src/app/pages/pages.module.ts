@@ -27,7 +27,9 @@ import { ListListPageComponent } from './list-list-page/list-list-page.component
     PAGES_ROUTES
   ],
   declarations: [RoutesComponent, StartComponent,
-    UserPageComponent, PlacePageComponent, ItemPageComponent, PlaceListPageComponent, ItemListPageComponent, ListPageComponent, ListListPageComponent],
+    UserPageComponent, PlacePageComponent, ItemPageComponent, PlaceListPageComponent,
+    ItemListPageComponent,
+    ListPageComponent, ListListPageComponent],
   exports: [RoutesComponent]
 })
 export class PagesModule { }

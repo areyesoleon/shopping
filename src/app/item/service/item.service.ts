@@ -91,7 +91,7 @@ export class ItemService {
 
   loadAllItemState() {
     this._ms.setLoading(true);
-    return this.http.get(this.url + 'admin/item/state/true/?token=' + localStorage.getItem('token'))
+    return this.http.get(this.url + 'admin/item/state/true/toList/?token=' + localStorage.getItem('token'))
       .pipe(map((res: any) => {
         this._ms.setLoading(false);
         return res.items;
