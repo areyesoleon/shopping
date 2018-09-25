@@ -9,6 +9,7 @@ import { ItemListPageComponent } from './item-list-page/item-list-page.component
 import { ListComponent } from '../list/list/list.component';
 import { ListListComponent } from '../list/list-list/list-list.component';
 import { BuyListPageComponent } from './buy-list-page/buy-list-page.component';
+import { BuyBuyPageComponent } from './buy-buy-page/buy-buy-page.component';
 
 const pagesRoutes: Routes = [
   { path: 'modules', canActivate: [LoginGuard], component: StartComponent },
@@ -23,6 +24,7 @@ const pagesRoutes: Routes = [
   { path: 'list/:id', canActivate: [LoginGuard], component: ListComponent },
   { path: 'list-list', canActivate: [LoginGuard], component: ListListComponent },
   { path: 'buy-list', canActivate: [LoginGuard], component: BuyListPageComponent },
+  { path: 'buy-buy/:id', canActivate: [LoginGuard], component: BuyBuyPageComponent },
   { path: '', redirectTo: '/modules', pathMatch: 'full' }
 ];
 

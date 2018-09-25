@@ -1,3 +1,31 @@
-<p>
-  buy-buy works!
-</p>
+<mat-card id="card">
+  <mat-card-content>
+    <mat-form-field>
+      <input matInput (keyup)="filter($event.target.value)" placeholder="Filter">
+    </mat-form-field>
+    <div class="scroll">
+      <table id="table-card" mat-table [dataSource]="tableList">
+        <ng-container matColumnDef="select">
+          <th mat-header-cell *matHeaderCellDef>
+            <!-- <mat-checkbox (change)="$event ? masterToggle() : null" [checked]="selection.hasValue() && isAllSelected()"
+              [indeterminate]="selection.hasValue() && !isAllSelected()">
+            </mat-checkbox> -->
+            &nbsp;
+          </th>
+          <td mat-cell *matCellDef="let row">
+            <mat-checkbox (click)="$event.stopPropagation()" (change)="$event ? [selection.toggle(row),itemBuyed(row)]  : null"
+              [checked]="selection.isSelected(row)">
+            </mat-checkbox>
+          </td>
+        </ng-container>
+        <ng-container matColumnDef="name">
+          <th mat-header-cell *matHeaderCellDef> Nombre </th>
+          <td mat-cell *matCellDef="let element">{{element.name}}</td>
+        </ng-container>
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr class="row-table" mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+      </table>
+    </div>
+    <mat-paginator [pageSizeOptions]="[3,7,10,25,100]"></mat-paginator>
+  </mat-card-content>
+</mat-card>

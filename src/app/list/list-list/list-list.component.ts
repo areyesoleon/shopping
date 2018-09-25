@@ -33,6 +33,13 @@ export class ListListComponent implements OnInit {
     });
   }
 
+  filter(value: any) {
+    this.tableList.filter = value.trim().toLowerCase();
+    if (this.tableList.paginator) {
+      this.tableList.paginator.firstPage();
+    }
+  }
+
   editList(id: string) {
     this.router.navigate(['/list/' + id]);
   }
