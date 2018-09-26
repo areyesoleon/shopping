@@ -16,7 +16,15 @@
       <mat-form-field>
         <input [(ngModel)]="user.password" name="password" type="password" matInput placeholder="Contraseña" required>
       </mat-form-field>
-      <mat-checkbox class="example-margin" name="remember" [(ngModel)]="user.remember">Recuerdame</mat-checkbox>
+      <div style="display:flex; justify-content: space-between; align-items: center">
+        <div>
+          <mat-checkbox class="example-margin" name="remember" [(ngModel)]="user.remember">Recuerdame</mat-checkbox>
+        </div>
+        <div>
+          <a class="a" [routerLink]="['/user']" >Registrate</a>
+        </div>
+      </div>
+
     </form>
   </mat-card-content>
   <mat-card-actions>
