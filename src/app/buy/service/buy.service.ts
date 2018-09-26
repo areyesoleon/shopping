@@ -18,7 +18,7 @@ export class BuyService {
     public snackBar: MatSnackBar,
   ) { }
 
-  itemBuyed(item,listId) {
+  itemBuyed(item, listId) {
     this._ms.setLoading(true);
     return this.http.put(this.url + 'admin/buyed/' + listId + '/?token=' + localStorage.getItem('token'), item)
       .pipe(map((res: any) => {
@@ -27,12 +27,32 @@ export class BuyService {
           duration: 3000,
           panelClass: ['success-snackBar']
         });
-        return res;
+        return res.list;
       }, catchError((err: any) => {
         this.snackBar.open('Compra', err.error.errors.message, {
           panelClass: ['error-snackBar']
         });
         this._ms.setLoading(false);
+        return err;
+      })))
+  }
+
+  listFinished(list) {
+    this._ms.setLoading(true);
+    console.log(this.url + 'admin/buyed/listshop/' + list + '/?token=' + localStorage.getItem('token'));
+    return this.http.put(this.url + 'admin/buyed/listshop/' + list + '/?token=' + localStorage.getItem('token'), list)
+      .pipe(map((res: any) => {
+        this._ms.setLoading(false);
+        this.snackBar.open('Lista', 'Terminada', {
+          duration: 3000,
+          panelClass: ['success-snackBar']
+        });
+        return res;
+      }, catchError((err: any) => {
+        this._ms.setLoading(false);
+        this.snackBar.open('Lista', err.error.errors.message, {
+          panelClass: ['error-snackBar']
+        });
         return err;
       })))
   }
